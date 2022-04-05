@@ -1,10 +1,10 @@
 import numpy as np
 from treelib import Node, Tree
-def line_of_sight(x, y, n, board):
 
+def line_of_sight(x, y, n, board):
     aux_x = x
     aux_y = y
-    # check diagonal derecha
+    # check diagonal inferior derecha
     # for aux_x in range(aux_x, n):
     #     if aux_y+1<=n:
     #         aux_y+=1
@@ -12,19 +12,15 @@ def line_of_sight(x, y, n, board):
     #         board[aux_x, aux_y-1] = '1'
     #     if aux_y == n:
     #         break
-    # check diagonal izquierda
-    for aux_x in reversed(range(0, aux_x)):
-        if aux_y+1>=n:
-            aux_y+=1
-            print('uwu')
-        if board[aux_x,aux_y+1] != '1':
-            board[aux_x,aux_y+1] = '1'
-        if aux_y == n:
-            break
-    # check izquierda
-    # for x in reversed(range(x, n)):
-    #     if board[x, y] != 'Q':
-    #         board[x, y] = 1
+    # check diagonal superior derecha
+    # for aux_x in reversed(range(0, aux_x+1)):
+    #     if aux_y+1<=n:
+    #         print(aux_x, aux_y)
+    #         aux_y+=1
+    #     if board[aux_x, aux_y-1] != '1':
+    #         board[aux_x ,aux_y-1] = '1'
+    #     if aux_y == n:
+    #         break
 
     #check fila
     #for i in range(n)
@@ -44,10 +40,7 @@ def n_queens():
     queens = 0
     new_tree = Tree()
     board = np.zeros((n, n), dtype=int)
-    # for x in range(n):
-    #     for y in range(n):
-    #         board[x, y] = i
-    line_of_sight(0, 2, n, board)
+    line_of_sight(1, 2, n, board)
 
     print(board)
 
