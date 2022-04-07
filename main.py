@@ -29,38 +29,20 @@ def line_of_sight(x, y, n, board):
     #     if board[aux_x, aux_y] != '1':
     #         board[aux_x, aux_y] = '1'
     # check diagonal inferior izquierda
-    for aux_x in range(aux_x, n):           # TODO: Fix aux_y porque tiene +1
-        if aux_y>=0:
-            print('uwu' , aux_x, aux_y)
+    for aux_x in range(aux_x, n):
+        if aux_y-1>=0:
             aux_y-=1
-        if board[aux_x, aux_y] != '1':
-            board[aux_x, aux_y] = '1'
+        if board[aux_x, aux_y+1] != '1':
+            board[aux_x, aux_y+1] = '1'
         if aux_y == 0:
             break
-
-
-
-
-
-    #check fila
-    #for i in range(n)
-    #   if i == x:
-    #       continue
-    #   if board[i,y] == 1:
-    #       return false
-    #return true
-
-    #check diagonal
-    #for i in range(n):
-    #   if board[x,i] == 1:
-    #
 
 def n_queens():
     n=4
     queens = 0
     new_tree = Tree()
     board = np.zeros((n, n), dtype=int)
-    line_of_sight(2, 3, n, board)
+    line_of_sight(1, 1, n, board)
 
     print(board)
 
